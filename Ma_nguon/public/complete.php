@@ -2,11 +2,13 @@
 require __DIR__.'/../src/Session.php';
 require __DIR__.'/../src/Input.php';
 require __DIR__.'/../src/Draft.php';
+require __DIR__.'/../src/DraftGuard.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     checkCsrf($_POST);
-    if (draftExpired($_SESSION, time(), 1800)) {
+    if (!canComplete($_SESSION, (int)field($_POST, 'event_id'), time(), 1800)) {
         cancelDraft($_SESSION);
-        header('Location: /register.php', true, 303); exit;
+        header('Location: /register.php', true, 303);
+        exit;
     }
     $_SESSION['completed'] = 'SIMULATED_OK';
     cancelDraft($_SESSION);
