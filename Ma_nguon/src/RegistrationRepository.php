@@ -21,7 +21,8 @@ final class RegistrationRepository
             'INSERT INTO registrations (event_id,name,email) VALUES ($1,$2,$3)
              ON CONFLICT (event_id,email) DO NOTHING RETURNING id',
             [$eventId, $name, $email]
-        );
+        ); 
+        
         return pg_num_rows($result) === 1 ? 'CREATED' : 'DUPLICATE';
     }
     public function listForEvent(int $eventId): array
