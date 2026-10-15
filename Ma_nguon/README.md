@@ -24,7 +24,7 @@ bash lab.sh extend
 
 `test` kiểm tra phần mẫu; `extend` kiểm tra phần tự làm. Các vị trí TODO là nhiệm vụ cần hoàn thiện; không sửa test để bỏ qua lỗi.
 
-Kết quả mở rộng cần đạt: `TESTS=8 FAILED=0`. Có lớp kiểm tra sức chứa, chương trình gọi lớp và lớp mở rộng trả confirmed, waiting hoặc rejected theo quy tắc đã công bố.
+Kết quả mở rộng cần đạt: `TESTS=9 FAILED=0`. Có lớp kiểm tra sức chứa, chương trình gọi lớp và lớp mở rộng trả confirmed, waiting hoặc rejected theo quy tắc đã công bố. Ca `available-without-waiting-list` xác nhận đăng ký vẫn được chấp nhận khi còn chỗ, kể cả khi danh sách chờ bị tắt.
 
 ## Tệp nộp
 
